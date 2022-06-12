@@ -1,0 +1,13 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Manual
+    url: https://mlr3book.mlr-org.com/
+    about: The mlr3 book - the manual of the mlr3 ecosystem
+
+  - name: Website
+    url: https://mlr-org.com
+    about: Our main website with additional resources
+
+  - name: Stack Overflow
+    url: https://stackoverflow.com/questions/tagged/mlr3
+    about: "Questions about mlr3 on Stack Overflow (tag: mlr3)
