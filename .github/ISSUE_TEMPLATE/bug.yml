@@ -1,5 +1,5 @@
 name: Bug Report
-description: Found something you weren't expecting? Report it here!
+description: Found something you weren't expecting? Report it here! Please note that we **might close/delete** your issue if you skip the issue template for no good reason.
 labels: kind/bug
 body:
 - type: markdown
@@ -26,13 +26,15 @@ body:
     description: |
       Please provide a [minimal reproducible example](https://stackoverflow.com/help/minimal-reproducible-example), i.e. a simplified version of your problem executed in a fresh environment.
       The issue form below contains a quickstart example for your convenience.
+      
       In addition, here are some additional step-by-step instructions:
           1. Copy the code that reproduces the problem.
           2. Run `reprex::reprex(session_info = TRUE, style = TRUE)`.
           3. Depending on your editor, you should now have the result in your clipboard or in a browser tab for manual copying. 
-             You can read more about {reprex} in [it's "dos and dont's" article](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html).
+             
+      You can read more about {reprex} in [it's "dos and dont's" article](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html).
     placeholder: |
-      Copy the code below and execute it to see how the {reprex} package works
+      Copy the code below and execute it to see how the {reprex} package can be used with {mlr3}
       
       reprex::reprex({
         library("mlr3")
