@@ -16,8 +16,8 @@ body:
     label: Description
     description: |
       Issue description goes here.
-    validations:
-      required: true
+  validations:
+    required: true
       
 - type: textarea
   id: code
