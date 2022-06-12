@@ -5,31 +5,36 @@ body:
 - type: markdown
   attributes:
     value: |
-      * Before submitting an issue, please run `update.packages()` and see if the bug still persists.
-      * Please check whether your problem has already been mentioned on GitHub or Stack Overflow.
-      * Please think again if your issue is really related to mlr3 itself or one of the other packages (e.g. mlr3tuning, mlr3learners, etc.).
-      * When reporting a bug, please use one of our predefined [tasks](https://mlr-org.com/tasks.html) via `task = tsk(<id>)`.
-      * In case your isse is rather a topic for discussion, you can also start a GitHub discussion.
+      * Before submitting an issue, please update all mlr3 packages and check if the issue persists.
+      * Please double-check if your issue is really related to the {mlr3} package or rather to one of its extension packages (e.g. {mlr3tuning}, {mlr3learners}, etc.).
+      * If you have a question about how to do something, please consider asking on Stackoverflow or GitHub Discussions
+      * When reporting a bug, please use one of the included [mlr3 tasks](https://mlr-org.com/tasks.html) via `task = tsk(<id>)`.
 
 - type: textarea
   id: description
   attributes:
     label: Description
     description: |
-      Please provide a description of your issue here.
+      Issue description goes here.
+    validations:
+      required: true
+      
 - type: textarea
   id: code
   attributes:
-    label: Minimal reproducible example
+    label: Reproducible example
     description: |
-      Provide a [minimal reproducible example](https://stackoverflow.com/help/minimal-reproducible-example), i.e. a simplified version of your problem that allows to reproduce your problem in a fresh environment.
-      To create a reproducible example, do the following:
-          1. Copy the code that includes the problem you want to report.
+      Please provide a [minimal reproducible example](https://stackoverflow.com/help/minimal-reproducible-example), i.e. a simplified version of your problem executed in a fresh environment.
+      The issue form below contains a quickstart example for your convenience.
+      In addition, here are some additional step-by-step instructions:
+          1. Copy the code that reproduces the problem.
           2. Run `reprex::reprex(session_info = TRUE, style = TRUE)`.
-          3. A browser tab opens that shows the output of running the code that you copied in a clean R session. If it is not what you were expecting, the code you copied is not self-contained. If it is what you want, paste the content of your clipboard into the area below. You can read more about reprex [here](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html).
+          3. Depending on your editor, you should now have the result in your clipboard or in a browser tab for manual copying. 
+             You can read more about {reprex} in [it's "dos and dont's" article](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html).
     placeholder: |
-      ```r
-      reprex::reprex(
+      Copy the code below and execute it to see how the {reprex} package works
+      
+      reprex::reprex({
         library("mlr3")
         task = tsk("iris")
         learner = lrn("classif.rpart")
@@ -38,33 +43,8 @@ body:
         learner$train(task, row_ids = 1:120)
         # this is what the decision tree looks like
         learner$model
+        }, session_into = TRUE
       )
-      ```
-      
-      results in
-      
-      ``` r
-      library("mlr3")
-      task <- tsk("iris")
-      learner <- lrn("classif.rpart")
 
-      # train a model of this learner for a subset of the task
-      learner$train(task, row_ids = 1:120)
-      # this is what the decision tree looks like
-      learner$model
-      #> n= 120 
-      #> 
-      #> node), split, n, loss, yval, (yprob)
-      #>       * denotes terminal node
-      #> 
-      #> 1) root 120 70 setosa (0.41666667 0.41666667 0.16666667)  
-      #>   2) Petal.Length< 2.45 50  0 setosa (1.00000000 0.00000000 0.00000000) *
-      #>   3) Petal.Length>=2.45 70 20 versicolor (0.00000000 0.71428571 0.28571429)  
-      #>     6) Petal.Length< 4.95 49  1 versicolor (0.00000000 0.97959184 0.02040816) *
-      #>     7) Petal.Length>=4.95 21  2 virginica (0.00000000 0.09523810 0.90476190) *
-      ```
-
-      <sup>Created on 2022-06-12 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
-      
   validations:
     required: true
